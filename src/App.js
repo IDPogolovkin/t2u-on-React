@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import 'boxicons/css/boxicons.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppLayout from './components/AppLayout';
+import Blank from './pages/Blank';
+import Registration from './components/Registration';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<AppLayout />}>
+                    <Route index element={<Blank />} />
+                    <Route path='/main' element={<Blank />} />
+                    <Route path='/reg' element={<Registration />} />
+                    <Route path='/user' element={<Blank />} />
+                    <Route path='/order' element={<Blank />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
